@@ -30,7 +30,10 @@ public class Checkout {
 						totalPrice += productPrice)
 				.get();
 
-		float totalDiscount = this.discount.apply(products);
+		float totalDiscount = 0;
+		if (discount != null) {
+			totalDiscount = this.discount.apply(products);
+		}
 		float totalCoast = coast - totalDiscount;
 		return totalCoast;
 	}
